@@ -25,3 +25,5 @@
 # User-specific .bazelrc
 user.bazelrc
 
+# IDE
+.idea/
