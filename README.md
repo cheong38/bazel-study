@@ -26,7 +26,7 @@ Starlark 언어를 통해 더욱 유연한 커스텀 룰을 작성할 수 있다
 
 ### foo_binary
 
-empty rule.
+experimental rule.
 
 ```
 $ bazel build //rule:foo_bin

@@ -1,6 +1,5 @@
-# Empty rule
 def _foo_binary_impl(ctx):
-    pass
+    print(ctx.label)
 
 foo_binary = rule(
     implementation = _foo_binary_impl,
