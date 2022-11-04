@@ -20,6 +20,18 @@ $ bazel build //genrule:envinfo
 
 실행 후, `bazel-bin/genrule/envinfo.txt` 파일이 생성되는 것을 확인할 수 있다.
 
+## Rule
+
+Starlark 언어를 통해 더욱 유연한 커스텀 룰을 작성할 수 있다.
+
+### foo_binary
+
+empty rule.
+
+```
+$ bazel build //rule:foo_bin
+```
+
 ## Tips
 
 ### `bazel info --show_make_env`
