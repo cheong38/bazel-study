@@ -7,7 +7,7 @@ def _foo_binary_impl(ctx):
     # Bazel won't create the file until it is actually requested.
     ctx.actions.write(
         output = out,
-        content = "Hello\n",
+        content = "Hello {}!\n".format(ctx.attr.username),
     )
 
     # Tell Bazel that the file is an output of the rule, and not a temporary file used
@@ -17,4 +17,7 @@ def _foo_binary_impl(ctx):
 
 foo_binary = rule(
     implementation = _foo_binary_impl,
+    attrs = {
+        "username": attr.string(),
+    },
 )
