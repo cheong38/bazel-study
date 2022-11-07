@@ -5,9 +5,10 @@ def _foo_binary_impl(ctx):
     # Create file with the given content.
     # It just registers an action, which taught Bazel how to generate the file.
     # Bazel won't create the file until it is actually requested.
+    paths = [file.path for file in ctx.files.srcs]
     ctx.actions.write(
         output = out,
-        content = "Hello {}!\n".format(ctx.attr.username),
+        content = "Hello {}!\n".format(ctx.attr.username) + "\nsrc files:\n" + "\n".join(paths),
     )
 
     # Tell Bazel that the file is an output of the rule, and not a temporary file used
@@ -19,5 +20,6 @@ foo_binary = rule(
     implementation = _foo_binary_impl,
     attrs = {
         "username": attr.string(),
+        "srcs": attr.label_list(allow_files = True),
     },
 )
