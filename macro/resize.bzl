@@ -9,6 +9,7 @@ def resize(name, src, size = "100x100", **kwargs):
         name = name,
         srcs = [src],
         outs = ["resized_" + src],
+        # $< means src file $@ means out file
         cmd = "convert $< -resize " + size + " $@",
         **kwargs
     )
